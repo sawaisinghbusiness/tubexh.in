@@ -904,7 +904,7 @@ body {
     transform: translateY(-6px) !important;
 }
 
-/* Image containers — black background, rounded top */
+/* Image containers — black background, fixed height, rounded top */
 #div_block-22-116,
 #div_block-76-116,
 #div_block-92-116,
@@ -914,6 +914,20 @@ body {
     overflow: hidden !important;
     position: relative !important;
     margin-top: -3.5rem !important;
+    height: 22rem !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+}
+
+#div_block-22-116 img,
+#div_block-76-116 img,
+#div_block-92-116 img,
+#div_block-108-116 img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
 }
 
 /* Image hover float effect */
@@ -921,8 +935,6 @@ body {
 #div_block-76-116 img,
 #div_block-92-116 img,
 #div_block-108-116 img {
-    width: 100% !important;
-    display: block !important;
     transition: transform 0.5s ease !important;
 }
 
