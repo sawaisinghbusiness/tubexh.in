@@ -895,6 +895,9 @@ body {
     padding-bottom: 0 !important;
     transition: transform 0.3s ease !important;
     position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 32rem !important;
 }
 
 #div_block-21-116:hover,
@@ -915,6 +918,7 @@ body {
     position: relative !important;
     margin-top: -3.5rem !important;
     height: 22rem !important;
+    flex-shrink: 0 !important;
     display: flex !important;
     align-items: flex-end !important;
     justify-content: center !important;
@@ -954,6 +958,8 @@ body {
     border: none !important;
     border-radius: 0 0 1rem 1rem !important;
     padding: 1.5rem 1.5rem 1.75rem !important;
+    flex: 1 !important;
+    overflow: hidden !important;
 }
 
 /* Name + role row — stack vertically */
