@@ -800,33 +800,25 @@ body {
     border-radius: 2px;
 }
 
-/* ===== ABOUT PAGE - TEAM GRID (2 columns always) ===== */
+/* ===== ABOUT PAGE - TEAM GRID (2x2) ===== */
 #div_block-20-116 {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 1.5rem !important;
+    gap: 2rem !important;
     align-items: start !important;
 }
 
 #div_block-21-116,
-#div_block-75-116 {
+#div_block-75-116,
+#div_block-91-116,
+#div_block-107-116 {
     width: 100% !important;
     min-width: 0 !important;
 }
 
-/* Smaller image on mobile so both fit */
 @media (max-width: 767px) {
     #div_block-20-116 {
-        gap: 0.75rem !important;
-    }
-    #div_block-22-116 img,
-    #div_block-76-116 img {
-        max-width: 100% !important;
-        height: auto !important;
-    }
-    #div_block-24-116 .ct-text-block,
-    #div_block-78-116 .ct-text-block {
-        font-size: 0.8rem !important;
+        gap: 1rem !important;
     }
 }
 
