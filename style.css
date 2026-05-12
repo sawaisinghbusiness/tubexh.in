@@ -48,6 +48,8 @@ body {
     font-family: 'Manrope', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    visibility: visible !important;
+    background-color: #0f0d0d !important;
 }
 
 /* ===== ANIMATIONS ===== */
