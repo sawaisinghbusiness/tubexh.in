@@ -1039,21 +1039,37 @@ body {
     background: linear-gradient(90deg, transparent, #b65eff 40%, #27f9fb 60%, transparent);
 }
 
-/* Heading - Let's Chat */
-#headline-247-116 {
-    color: #ffffff !important;
-    font-size: clamp(2rem, 5vw, 3.5rem) !important;
-    font-weight: 800 !important;
-    line-height: 1.15 !important;
-    margin-bottom: 1.5rem !important;
+/* Layout: 2 columns on desktop */
+#div_block-244-116 {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4rem !important;
+    align-items: start !important;
 }
 
-/* Description text */
+@media (max-width: 768px) {
+    #div_block-244-116 { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+}
+
+/* LEFT SIDE */
+#headline-247-116 {
+    color: #ffffff !important;
+    font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    margin-bottom: 1rem !important;
+    background: linear-gradient(90deg, #ffffff 60%, #b65eff) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
 #_rich_text-249-116,
 #_rich_text-249-116 p {
-    color: rgba(255,255,255,0.75) !important;
-    font-size: 1rem !important;
-    line-height: 1.7 !important;
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 0.97rem !important;
+    line-height: 1.75 !important;
+    margin-bottom: 2rem !important;
 }
 
 #_rich_text-249-116 a {
@@ -1062,17 +1078,42 @@ body {
     font-weight: 600 !important;
 }
 
-#_rich_text-249-116 a:hover {
-    color: #27f9fb !important;
+#_rich_text-249-116 a:hover { color: #27f9fb !important; }
+
+/* Contact info cards on left */
+#div_block-245-116::after {
+    content: '📞  +91 95888 94289\A✉️  agency@getxh.in\A📍  Rajasthan, India';
+    white-space: pre;
+    display: block;
+    margin-top: 1.5rem;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.92rem;
+    line-height: 2.2;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(182,94,255,0.2);
+    border-radius: 12px;
 }
 
-/* "Get in Touch" subheading */
+/* RIGHT SIDE - Form */
 #text_block-251-116 {
     color: #ffffff !important;
-    font-size: 1.3rem !important;
+    font-size: 1.2rem !important;
     font-weight: 700 !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1.25rem !important;
     letter-spacing: -0.01em !important;
+}
+
+/* Hide floating red asterisks */
+#section-243-116 .wpcf7-form abbr,
+#section-243-116 .wpcf7-form .wpcf7-validates-as-required ~ br,
+#section-243-116 label abbr,
+#section-243-116 .wpcf7-form p > br {
+    display: none !important;
+}
+
+#section-243-116 .wpcf7-form p {
+    margin-bottom: 0.85rem !important;
 }
 
 /* Form inputs */
@@ -1081,12 +1122,13 @@ body {
 #section-243-116 .wpcf7-form input[type="tel"],
 #section-243-116 .wpcf7-form textarea {
     background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(182,94,255,0.3) !important;
-    border-radius: 8px !important;
+    border: 1px solid rgba(182,94,255,0.25) !important;
+    border-radius: 10px !important;
     color: #ffffff !important;
-    padding: 0.85rem 1rem !important;
+    padding: 0.9rem 1.1rem !important;
     font-size: 0.95rem !important;
-    transition: border-color 0.3s ease !important;
+    width: 100% !important;
+    transition: border-color 0.3s, background 0.3s !important;
 }
 
 #section-243-116 .wpcf7-form input:focus,
@@ -1098,7 +1140,7 @@ body {
 
 #section-243-116 .wpcf7-form input::placeholder,
 #section-243-116 .wpcf7-form textarea::placeholder {
-    color: rgba(255,255,255,0.4) !important;
+    color: rgba(255,255,255,0.35) !important;
 }
 
 /* Submit button */
@@ -1108,15 +1150,18 @@ body {
     color: #0f0d0d !important;
     font-weight: 700 !important;
     border: none !important;
-    border-radius: 8px !important;
-    padding: 0.9rem 2rem !important;
+    border-radius: 10px !important;
+    padding: 0.95rem 2.5rem !important;
     cursor: pointer !important;
     font-size: 1rem !important;
-    transition: opacity 0.3s ease !important;
+    letter-spacing: 0.03em !important;
+    transition: opacity 0.3s, transform 0.2s !important;
+    margin-top: 0.5rem !important;
 }
 
 #section-243-116 .wpcf7-form input[type="submit"]:hover {
-    opacity: 0.85 !important;
+    opacity: 0.88 !important;
+    transform: translateY(-2px) !important;
 }
 
 /* ===== PRINT STYLES ===== */
