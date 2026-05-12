@@ -904,23 +904,16 @@ body {
     transform: translateY(-6px) !important;
 }
 
-/* Image containers — colored background, rounded top */
+/* Image containers — black background, rounded top */
 #div_block-22-116,
 #div_block-76-116,
 #div_block-92-116,
 #div_block-108-116 {
-    background: linear-gradient(135deg, #7b2fff 0%, #b65eff 100%) !important;
+    background: #000000 !important;
     border-radius: 1rem 1rem 0 0 !important;
     overflow: hidden !important;
     position: relative !important;
     margin-top: -3.5rem !important;
-}
-
-/* Alternate cards — dark bg */
-#div_block-76-116,
-#div_block-108-116 {
-    background: linear-gradient(135deg, #1a0a3a 0%, #0f0820 100%) !important;
-    border: 1px solid rgba(182,94,255,0.3) !important;
 }
 
 /* Image hover float effect */
@@ -940,16 +933,29 @@ body {
     transform: scale(1.04) translateY(-8px) !important;
 }
 
-/* Text section below image */
+/* Text section — white bg, black text */
 #div_block-24-116,
 #div_block-78-116,
 #div_block-94-116,
 #div_block-110-116 {
-    background: linear-gradient(180deg, #1a0a3a 0%, #0f0820 100%) !important;
-    border: 1px solid rgba(182,94,255,0.2) !important;
-    border-top: none !important;
+    background: #ffffff !important;
+    border: none !important;
     border-radius: 0 0 1rem 1rem !important;
     padding: 1.25rem 1.25rem 1.5rem !important;
+}
+
+#div_block-24-116 .ct-text-block,
+#div_block-78-116 .ct-text-block,
+#div_block-94-116 .ct-text-block,
+#div_block-110-116 .ct-text-block {
+    color: #111111 !important;
+}
+
+#div_block-25-116,
+#div_block-79-116,
+#div_block-95-116,
+#div_block-111-116 {
+    border-bottom: 1px solid #e0e0e0 !important;
 }
 
 /* ===== ABOUT PAGE - TEAM GRID (2x2) ===== */
