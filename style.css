@@ -933,7 +933,7 @@ body {
     transform: scale(1.04) translateY(-8px) !important;
 }
 
-/* Text section — white bg, black text */
+/* Text section — white bg */
 #div_block-24-116,
 #div_block-78-116,
 #div_block-94-116,
@@ -941,21 +941,44 @@ body {
     background: #ffffff !important;
     border: none !important;
     border-radius: 0 0 1rem 1rem !important;
-    padding: 1.25rem 1.25rem 1.5rem !important;
+    padding: 1.5rem 1.5rem 1.75rem !important;
 }
 
-#div_block-24-116 .ct-text-block,
-#div_block-78-116 .ct-text-block,
-#div_block-94-116 .ct-text-block,
-#div_block-110-116 .ct-text-block {
-    color: #111111 !important;
-}
-
+/* Name + role row — stack vertically */
 #div_block-25-116,
 #div_block-79-116,
 #div_block-95-116,
 #div_block-111-116 {
-    border-bottom: 1px solid #e0e0e0 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.3rem !important;
+    padding-bottom: 1rem !important;
+    margin-bottom: 0 !important;
+    border-bottom: 2px solid #f0f0f0 !important;
+}
+
+/* Name */
+#text_block-26-116,
+#text_block-80-116,
+#text_block-96-116,
+#text_block-112-116 {
+    color: #0f0d0d !important;
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.1 !important;
+}
+
+/* Role */
+#text_block-27-116,
+#text_block-81-116,
+#text_block-97-116,
+#text_block-113-116 {
+    color: #b65eff !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
 }
 
 /* ===== ABOUT PAGE - TEAM GRID (2x2) ===== */
