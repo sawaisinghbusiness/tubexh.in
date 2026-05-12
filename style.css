@@ -766,6 +766,40 @@ body {
 }
 .mj-icon-wa:hover { background: rgba(37, 211, 102, 0.22); }
 
+/* ===== ABOUT PAGE - HERO TEXT SECTION ===== */
+#section-7-116 {
+    padding: 5rem 2rem !important;
+    position: relative !important;
+}
+
+#section-7-116::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(182, 94, 255, 0.4), rgba(39, 249, 251, 0.4), transparent);
+}
+
+#div_block-8-116 {
+    max-width: 860px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+#_rich_text-9-116 {
+    position: relative !important;
+}
+
+#_rich_text-9-116::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, #b65eff, #27f9fb);
+    margin: 2rem auto 0;
+    border-radius: 2px;
+}
+
 /* ===== ABOUT PAGE - TEAM GRID (2 columns always) ===== */
 #div_block-20-116 {
     display: grid !important;
