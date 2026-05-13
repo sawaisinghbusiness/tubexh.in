@@ -842,7 +842,7 @@ body {
     font-weight: 500 !important;
 }
 
-/* Remove massive empty gaps between team and Why You'll Love Us */
+/* Remove all excessive gaps around team section */
 #section-181-116 {
     display: none !important;
 }
@@ -853,8 +853,19 @@ body {
 }
 
 #section-11-116 > .ct-section-inner-wrap {
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+#section-219-116 > .ct-section-inner-wrap {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+/* Fix huge row gap between team card rows */
+#div_block-20-116 {
+    grid-row-gap: 2rem !important;
+    row-gap: 2rem !important;
 }
 
 /* ===== ABOUT PAGE - HERO TEXT SECTION ===== */
