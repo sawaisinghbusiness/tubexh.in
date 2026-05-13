@@ -950,8 +950,8 @@ body {
 #div_block-108-116 img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
-    object-position: top center !important;
+    object-fit: contain !important;
+    object-position: bottom center !important;
 }
 
 /* Image hover float effect */
