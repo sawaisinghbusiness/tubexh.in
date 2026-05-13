@@ -1136,13 +1136,33 @@ body {
     border-radius: 12px;
 }
 
-/* RIGHT SIDE - Form */
+/* RIGHT SIDE - Form card */
+#div_block-250-116 {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(182,94,255,0.25) !important;
+    border-radius: 20px !important;
+    padding: 2rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#div_block-250-116::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #b65eff, #27f9fb);
+    border-radius: 20px 20px 0 0;
+}
+
 #text_block-251-116 {
     color: #ffffff !important;
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
     font-weight: 700 !important;
-    margin-bottom: 1.25rem !important;
+    margin-bottom: 1.5rem !important;
     letter-spacing: -0.01em !important;
+    padding-bottom: 1rem !important;
+    border-bottom: 1px solid rgba(182,94,255,0.15) !important;
 }
 
 /* Hide floating red asterisks */
