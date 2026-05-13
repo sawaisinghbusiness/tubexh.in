@@ -802,7 +802,7 @@ body {
 }
 
 .tubexh-collage-sub {
-    color: rgba(255,255,255,0.8) !important;
+    color: #ececec !important;
     font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
     max-width: 600px !important;
     margin: 0 !important;
@@ -836,7 +836,7 @@ body {
 
 .tubexh-stat-label {
     font-size: 0.78rem !important;
-    color: rgba(255,255,255,0.65) !important;
+    color: #d0d0d0 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.08em !important;
     font-weight: 500 !important;
@@ -1127,7 +1127,7 @@ body {
 
 #_rich_text-249-116,
 #_rich_text-249-116 p {
-    color: rgba(255,255,255,0.7) !important;
+    color: #e0e0e0 !important;
     font-size: 0.97rem !important;
     line-height: 1.75 !important;
     margin-bottom: 2rem !important;
@@ -1190,7 +1190,7 @@ body {
     font-size: 0.7rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.1em !important;
-    color: rgba(255,255,255,0.4) !important;
+    color: #a0a0a0 !important;
     font-weight: 600 !important;
 }
 
@@ -1238,7 +1238,7 @@ body {
 /* Label styling */
 #section-243-116 .wpcf7-form label {
     display: block !important;
-    color: rgba(255,255,255,0.55) !important;
+    color: #b0b0b0 !important;
     font-size: 0.75rem !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
@@ -1288,7 +1288,7 @@ body {
 
 #section-243-116 .wpcf7-form input::placeholder,
 #section-243-116 .wpcf7-form textarea::placeholder {
-    color: rgba(255,255,255,0.25) !important;
+    color: rgba(255,255,255,0.5) !important;
 }
 
 #section-243-116 .wpcf7-form textarea {
