@@ -1141,19 +1141,63 @@ body {
 
 #_rich_text-249-116 a:hover { color: #27f9fb !important; }
 
-/* Contact info cards on left */
-#div_block-245-116::after {
-    content: '📞  +91 95888 94289\A✉️  agency@getxh.in\A📍  Rajasthan, India';
-    white-space: pre;
-    display: block;
-    margin-top: 1.5rem;
-    color: rgba(255,255,255,0.75);
-    font-size: 0.92rem;
-    line-height: 2.2;
-    padding: 1.5rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(182,94,255,0.2);
-    border-radius: 12px;
+/* Contact info cards */
+.tubexh-contact-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    margin-top: 2rem !important;
+}
+
+.tubexh-contact-card {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 1.1rem 1.4rem !important;
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(182,94,255,0.2) !important;
+    border-radius: 14px !important;
+    text-decoration: none !important;
+    transition: background 0.3s, border-color 0.3s, transform 0.2s !important;
+}
+
+.tubexh-contact-card:hover {
+    background: rgba(182,94,255,0.08) !important;
+    border-color: rgba(182,94,255,0.5) !important;
+    transform: translateX(4px) !important;
+}
+
+.tubexh-contact-icon {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    background: linear-gradient(135deg, rgba(182,94,255,0.2), rgba(39,249,251,0.1)) !important;
+    border: 1px solid rgba(182,94,255,0.3) !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #b65eff !important;
+}
+
+.tubexh-contact-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.15rem !important;
+}
+
+.tubexh-contact-label {
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: rgba(255,255,255,0.4) !important;
+    font-weight: 600 !important;
+}
+
+.tubexh-contact-value {
+    font-size: 0.97rem !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
 }
 
 /* RIGHT SIDE - Form card */
