@@ -984,5 +984,12 @@ var wpcf7_recaptcha = {
 		
 		
 	</script><!-- /WP_FOOTER --> 
-</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.mj-masonry-item, .projectsTiles').forEach(function(el) {
+    el.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+    el.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
+  });
+});
+</script></body>
 </html>
