@@ -842,10 +842,19 @@ body {
     font-weight: 500 !important;
 }
 
-/* Fix massive empty space in section-181 */
-#section-181-116 > .ct-section-inner-wrap {
+/* Remove massive empty gaps between team and Why You'll Love Us */
+#section-181-116 {
+    display: none !important;
+}
+
+#section-163-116 > .ct-section-inner-wrap {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+}
+
+#section-11-116 > .ct-section-inner-wrap {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
 }
 
 /* ===== ABOUT PAGE - HERO TEXT SECTION ===== */
