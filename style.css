@@ -1019,6 +1019,47 @@ body {
     #div_block-20-116 {
         gap: 1rem !important;
     }
+
+    /* Mobile: remove fixed height, let content determine size */
+    #div_block-21-116,
+    #div_block-75-116,
+    #div_block-91-116,
+    #div_block-107-116 {
+        height: auto !important;
+    }
+
+    /* Smaller image on mobile */
+    #div_block-22-116,
+    #div_block-76-116,
+    #div_block-92-116,
+    #div_block-108-116 {
+        height: 14rem !important;
+    }
+
+    /* Text area: no flex-grow on mobile */
+    #div_block-24-116,
+    #div_block-78-116,
+    #div_block-94-116,
+    #div_block-110-116 {
+        flex: none !important;
+        padding: 0.85rem !important;
+    }
+
+    /* Smaller role text on mobile to prevent wrapping */
+    #text_block-27-116,
+    #text_block-81-116,
+    #text_block-97-116,
+    #text_block-113-116 {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.04em !important;
+    }
+
+    #text_block-26-116,
+    #text_block-80-116,
+    #text_block-96-116,
+    #text_block-112-116 {
+        font-size: 1.1rem !important;
+    }
 }
 
 /* ===== ABOUT PAGE - CONTACT SECTION ===== */
