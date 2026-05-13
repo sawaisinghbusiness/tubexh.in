@@ -945,7 +945,19 @@ var cf7mls_object = {"ajax_url":"https://getxh.in/","is_rtl":"","disable_submit"
 	</script><!-- /WP_FOOTER --> 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.mj-masonry-item, .projectsTiles').forEach(function(el) {
+  document.querySelectorAll('.mj-masonry-item').forEach(function(item) {
+    var link = item.querySelector('.projectsTiles');
+    if (!link) return;
+    // Single click = direct redirect
+    item.addEventListener('click', function(e) {
+      var href = link.getAttribute('href');
+      if (href && href !== '#') window.open(href, '_blank');
+    });
+    // Block right-click and drag
+    item.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+    item.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
+  });
+  document.querySelectorAll('.projectsTiles').forEach(function(el) {
     el.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
     el.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
   });
