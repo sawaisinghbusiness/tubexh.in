@@ -9,5 +9,79 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '629898397888124');
-fbq('track', 'PageView');</script></body></html>
+fbq('track', 'PageView');</script>
+<!-- Tubexh Success Popup -->
+<div id="tubexh-success-popup">
+  <div class="popup-card">
+    <div class="popup-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 13l4 4L19 7" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="popup-title">Message Sent!</div>
+    <div class="popup-msg">Thanks for reaching out. Our team will get back to you within 24 hours.</div>
+    <div class="popup-bar-wrap"><div class="popup-bar"></div></div>
+  </div>
+</div>
+<script>
+(function() {
+  function initForm() {
+    var forms = document.querySelectorAll('.wpcf7-form');
+    forms.forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var required = form.querySelectorAll('[aria-required="true"]');
+        var valid = true;
+        required.forEach(function(field) {
+          if (!field.value.trim()) {
+            valid = false;
+            field.classList.add('wpcf7-not-valid');
+            var tip = field.parentNode.querySelector('.wpcf7-not-valid-tip');
+            if (!tip) {
+              tip = document.createElement('span');
+              tip.className = 'wpcf7-not-valid-tip';
+              tip.textContent = 'This field is required.';
+              field.parentNode.appendChild(tip);
+            }
+          } else {
+            field.classList.remove('wpcf7-not-valid');
+            var tip = field.parentNode.querySelector('.wpcf7-not-valid-tip');
+            if (tip) tip.remove();
+          }
+        });
+        if (!valid) return;
+        showSuccess(form);
+      });
+    });
+  }
+
+  function showSuccess(form) {
+    var popup = document.getElementById('tubexh-success-popup');
+    var bar = popup.querySelector('.popup-bar');
+    // Reset bar animation
+    bar.style.animation = 'none';
+    bar.offsetHeight;
+    bar.style.animation = 'shrinkBar 8s linear forwards';
+    popup.classList.add('show');
+    setTimeout(function() {
+      popup.classList.remove('show');
+      if (form) {
+        form.reset();
+        form.querySelectorAll('.wpcf7-not-valid').forEach(function(f){ f.classList.remove('wpcf7-not-valid'); });
+        form.querySelectorAll('.wpcf7-not-valid-tip').forEach(function(t){ t.remove(); });
+      }
+    }, 8000);
+  }
+
+  // Close on backdrop click
+  document.addEventListener('DOMContentLoaded', function() {
+    initForm();
+    var popup = document.getElementById('tubexh-success-popup');
+    popup.addEventListener('click', function(e) {
+      if (e.target === popup) popup.classList.remove('show');
+    });
+  });
+})();
+</script>
+</body></html>
 <!-- Cached & Optimized by Staq (https://www.wpstaq.com): 2026-05-10 08:15:12 GMT -->

@@ -1324,6 +1324,103 @@ body {
     box-shadow: 0 8px 24px rgba(182,94,255,0.35) !important;
 }
 
+/* ===== CONTACT FORM - VALIDATION & SUCCESS ===== */
+.wpcf7-not-valid-tip {
+    color: #ff6b6b !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    margin-top: 4px !important;
+    display: block !important;
+}
+.wpcf7-form input.wpcf7-not-valid,
+.wpcf7-form textarea.wpcf7-not-valid {
+    border-color: #ff6b6b !important;
+    box-shadow: 0 0 0 2px rgba(255,107,107,0.2) !important;
+}
+.wpcf7-response-output {
+    color: #ff6b6b !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    margin-top: 0.75rem !important;
+    padding: 0.6rem 1rem !important;
+    border-radius: 6px !important;
+    background: rgba(255,107,107,0.1) !important;
+    border: 1px solid rgba(255,107,107,0.3) !important;
+}
+
+/* Success popup */
+#tubexh-success-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+}
+#tubexh-success-popup.show {
+    display: flex;
+}
+#tubexh-success-popup .popup-card {
+    background: linear-gradient(135deg, #0f0d1a 0%, #1a0a3a 100%);
+    border: 1px solid rgba(182,94,255,0.3);
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    max-width: 380px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 40px rgba(182,94,255,0.15);
+    animation: popupIn 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+@keyframes popupIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+#tubexh-success-popup .popup-icon {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, #27F9FB, #7A17CC);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    box-shadow: 0 0 30px rgba(39,249,251,0.3);
+}
+#tubexh-success-popup .popup-icon svg {
+    width: 36px; height: 36px;
+}
+#tubexh-success-popup .popup-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.6rem;
+}
+#tubexh-success-popup .popup-msg {
+    font-size: 0.95rem;
+    color: #c0c0c0;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+#tubexh-success-popup .popup-bar-wrap {
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+#tubexh-success-popup .popup-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #27F9FB, #7A17CC);
+    border-radius: 4px;
+    width: 100%;
+    transform-origin: left;
+    animation: shrinkBar 8s linear forwards;
+}
+@keyframes shrinkBar {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+}
+
 /* ===== PROJECT TILES - COPY PROTECTION ===== */
 .projectsTiles,
 .mj-masonry-item,
