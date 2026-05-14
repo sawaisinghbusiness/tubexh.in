@@ -1,6 +1,64 @@
 /* Custom styles for WebAdelaide clone - loaded after CDN styles */
 /* These complement the Oxygen Builder styles loaded from CDN */
 
+/* ===== TESTIMONIAL CAROUSEL ===== */
+#section-tubexh-testimonials { background: #0f0d0d; }
+#section-tubexh-testimonials > .ct-section-inner-wrap { max-width: 72rem; margin: 0 auto; padding: 5rem 1.5rem; }
+.txh-tc-wrap { display: flex; flex-direction: column; gap: 2.5rem; }
+.txh-tc-heading { text-align: center; }
+.txh-tc-heading .ct-headline { color: #fff !important; margin-bottom: 0.75rem !important; }
+.txh-tc-sub { font-size: 1.05rem; margin: 0; }
+.txh-tc-sub .txh-word { color: rgba(255,255,255,0.18); transition: color 0.45s ease; display: inline; }
+.txh-tc-sub .txh-word.lit { color: #cdb813; }
+
+/* Desktop */
+.txh-tc-desktop { display: flex; align-items: center; position: relative; }
+.txh-tc-mobile { display: none; }
+.txh-tc-avatar-wrap { width: 440px; height: 440px; border-radius: 1.5rem; overflow: hidden; flex-shrink: 0; background: #1a0a3a; }
+.txh-tc-avatar { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.22s ease; }
+.txh-tc-card { background: #1a1128; border-radius: 1.5rem; padding: 2.5rem; margin-left: -5rem; z-index: 2; flex: 1; box-shadow: 0 25px 60px rgba(0,0,0,0.5); border: 1px solid rgba(182,94,255,0.15); }
+.txh-tc-content { transition: opacity 0.22s ease, transform 0.22s ease; }
+.txh-tc-name { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0 0 0.4rem 0 !important; }
+.txh-tc-role { font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.45); margin: 0 0 1.25rem 0; }
+.txh-tc-desc { color: rgba(255,255,255,0.82); font-size: 1rem; line-height: 1.75; margin: 0 0 1.75rem 0; }
+.txh-tc-socials { display: flex; gap: 0.75rem; }
+.txh-tc-socials-center { justify-content: center; }
+.txh-social-icon { width: 2.75rem; height: 2.75rem; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+.txh-social-icon:hover { background: rgba(182,94,255,0.35); transform: scale(1.08); }
+
+/* Nav */
+.txh-tc-nav { display: flex; justify-content: center; align-items: center; gap: 1.5rem; }
+.txh-tc-btn { width: 3rem; height: 3rem; border-radius: 50%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+.txh-tc-btn:hover { background: rgba(182,94,255,0.3); }
+.txh-tc-dots { display: flex; gap: 0.5rem; }
+.txh-dot { width: 0.75rem; height: 0.75rem; border-radius: 50%; background: rgba(255,255,255,0.25); border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; padding: 0; }
+.txh-dot-active { background: #b65eff; transform: scale(1.2); }
+
+/* Mobile */
+@media (max-width: 767px) {
+  .txh-tc-desktop { display: none; }
+  .txh-tc-mobile { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
+  .txh-tc-mob-avatar-wrap { width: 100%; max-width: 22rem; aspect-ratio: 1/1; border-radius: 1.5rem; overflow: hidden; background: #1a0a3a; }
+  .txh-tc-mob-avatar { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.22s ease; }
+  .txh-tc-mob-content { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; transition: opacity 0.22s ease, transform 0.22s ease; }
+}
+
+/* ===== SCROLL TEXT WHITE ANIMATION ===== */
+#_rich_text-70-455 p,
+#_rich_text-19-116 p {
+    color: rgba(255, 255, 255, 0.15);
+    transition: color 0.9s ease;
+}
+#_rich_text-70-455.aos-animate p,
+#_rich_text-19-116.aos-animate p {
+    color: #ffffff;
+}
+
+/* ===== HIDE OLD LOGO SHAPES IN CTA SECTION ===== */
+#div_block-151-3939 {
+    background-image: none !important;
+}
+
 /* ===== PROJECT TILES - HOVER SCROLL EFFECT ===== */
 /* On hover: image slowly pans from top to bottom (like webadelaide.com.au) */
 .projectsTiles {
@@ -746,29 +804,31 @@ body {
 }
 
 .mj-icon-email {
-    background: rgba(182, 94, 255, 0.12);
-    color: #c77eff !important;
-    border-color: rgba(182, 94, 255, 0.3);
+    background: #EA4335;
+    border-color: #EA4335;
 }
-.mj-icon-email:hover { background: rgba(182, 94, 255, 0.25); }
+.mj-icon-email:hover { background: #c5372b; }
 
 .mj-icon-insta {
-    background: rgba(255, 100, 130, 0.1);
-    color: #ff8fab !important;
-    border-color: rgba(255, 100, 130, 0.3);
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    border-color: transparent;
 }
-.mj-icon-insta:hover { background: rgba(255, 100, 130, 0.22); }
+.mj-icon-insta:hover { opacity: 0.88; }
 
 .mj-icon-wa {
-    background: rgba(37, 211, 102, 0.1);
-    color: #25d366 !important;
-    border-color: rgba(37, 211, 102, 0.3);
+    background: #25D366;
+    border-color: #25D366;
 }
-.mj-icon-wa:hover { background: rgba(37, 211, 102, 0.22); }
+.mj-icon-wa:hover { background: #1da851; }
+
+.mj-icon-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
 /* ===== ABOUT PAGE - COLLAGE SECTION ===== */
 #section-10-116 {
     position: relative !important;
+    height: auto !important;
+    min-height: 31.25rem !important;
+    max-height: none !important;
 }
 
 #section-10-116::before {
