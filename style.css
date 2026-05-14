@@ -1023,8 +1023,9 @@ body {
 #div_block-20-116 {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 32rem !important;
     gap: 2rem !important;
-    align-items: start !important;
+    align-items: stretch !important;
 }
 
 #div_block-21-116,
@@ -1033,6 +1034,9 @@ body {
 #div_block-107-116 {
     width: 100% !important;
     min-width: 0 !important;
+    height: 32rem !important;
+    max-height: 32rem !important;
+    overflow: hidden !important;
 }
 
 @media (max-width: 767px) {
