@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CreatorsTak — Reach real Rajasthani audiences through local creators</title>
+<meta name="description" content="CreatorsTak connects apps and D2C brands to vetted Rajasthani comedy & lifestyle creators — authentic regional reach with a pinch of madness." />
+
+<!-- FONTS: Clash Display (Fontshare) + Plus Jakarta Sans + Anonymous Pro -->
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ========== RESET & DESIGN TOKENS ========== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Typography */
+    --font-heading:   'Clash Display', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body:      'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono:      'Anonymous Pro', monospace, Consolas, 'Courier New';
+
+    /* Obsidian Matte Dark Base */
+    --bg-base:        #0c0c10;
+    --bg-surface:     #121217;
+    --bg-elevated:    #181820;
+    --bg-card:        rgba(18, 18, 24, 0.88);
+    --bg-card-hover:  #1e1e28;
+
+    /* White Opacity Tiers (Sharp, No Blur) */
+    --white-100:      rgba(255, 255, 255, 1.0);
+    --white-80:       rgba(255, 255, 255, 0.82);
+    --white-50:       rgba(255, 255, 255, 0.52);
+    --white-15:       rgba(255, 255, 255, 0.14);
+    --white-08:       rgba(255, 255, 255, 0.07);
+
+    /* Semantic Aliases */
+    --ink:            var(--white-100);
+    --ink-2:          var(--white-80);
+    --muted:          var(--white-50);
+    --faint:          rgba(255, 255, 255, 0.30);
+    --paper:          var(--bg-base);
+    --paper-2:        var(--bg-surface);
+    --line:           var(--white-08);
+    --line-2:         var(--white-15);
+
+    /* High-contrast Matte Crimson Red */
+    --accent:         #ff1e42;
+    --accent-d:       #d80f2f;
+    --accent-faint:   rgba(255, 30, 66, 0.10);
+    --accent-border:  rgba(255, 30, 66, 0.35);
+
+    --radius:         12px;
+    --radius-lg:      18px;
+    --maxw:           1080px;
+  }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; color-scheme: dark; }
+  body {
+    font-family: var(--font-body);
+    color: var(--white-80);
+    background: var(--bg-base);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    position: relative;
+    padding-top: 20px;
+  }
+
+  /* Authentic Film Grain / Noisy Background Overlay */
+  .bg-noise {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.055;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 { 
+    font-family: var(--font-heading);
+    line-height: 1.12; 
+    letter-spacing: -0.025em; 
+    font-weight: 700; 
+    color: var(--white-100); 
+  }
+  a { color: inherit; text-decoration: none; }
+  svg { display: block; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+  ::selection { background: var(--accent); color: #ffffff; }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  section { padding: 110px 0; position: relative; }
+  @media (max-width: 720px){ section { padding: 72px 0; } }
+
+  /* Monospace badge details */
+  .badge-mono {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  /* ========== BUTTONS ========== */
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--font-body);
+    font-weight: 600; font-size: 15px; letter-spacing: -0.01em;
+    padding: 12px 22px; border-radius: 999px;
+    transition: all .2s cubic-bezier(.2,.8,.2,1);
+    position: relative;
+  }
+  .btn svg { width: 16px; height: 16px; }
+  .btn-primary { 
+    background: rgba(255, 255, 255, 0.06); 
+    color: var(--white-100); 
+    border: 1px solid var(--white-15);
+  }
+  .btn-primary:hover { 
+    transform: translateY(-2px); 
+    background: rgba(255, 255, 255, 0.12); 
+    border-color: var(--white-50);
+  }
+  .btn-accent { 
+    background: var(--accent); 
+    color: #ffffff; 
+    border: 1px solid #ff3859;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+  .btn-accent:hover { 
+    transform: translateY(-2px); 
+    background: #ff2f50; 
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  }
+  .btn-ghost { 
+    color: var(--white-80); 
+    border: 1px solid var(--line-2); 
+    background: rgba(255, 255, 255, 0.02); 
+  }
+  .btn-ghost:hover { 
+    transform: translateY(-2px); 
+    color: var(--white-100); 
+    border-color: var(--white-50);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .btn-lg { padding: 15px 30px; font-size: 16px; border-radius: 12px; font-weight: 600; }
+
+  /* ========== FLOATING GLASSMORHPIC NAV-PILL ========== */
+  .nav-header {
+    position: fixed;
+    top: 18px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    padding: 0 18px;
+  }
+  .nav-pill {
+    pointer-events: auto;
+    width: 100%;
+    max-width: 1040px;
+    height: 60px;
+    border-radius: 999px;
+    background: rgba(16, 16, 22, 0.85);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 0 10px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+  }
+  .nav-pill.scrolled {
+    background: rgba(12, 12, 16, 0.95);
+    border-color: rgba(255, 30, 66, 0.35);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.7);
+  }
+  .brand { 
+    display: flex; align-items: center; gap: 10px; 
+    font-family: var(--font-heading);
+    font-weight: 700; font-size: 20px; letter-spacing: -0.03em; color: var(--white-100); 
+  }
+  .brand .logo { width: 28px; height: 28px; flex: 0 0 auto; }
+  .brand b { 
+    color: var(--accent); 
+  }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+
+  /* Rolling Text Hover Animation */
+  .nav-link_roll {
+    display: inline-flex;
+    position: relative;
+    overflow: hidden;
+    height: 22px;
+    line-height: 22px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--white-50);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .nav-link_roll .roll-inner {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.32s cubic-bezier(0.76, 0, 0.24, 1), color 0.2s ease;
+  }
+  .nav-link_roll .roll-text {
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+  .nav-link_roll:hover {
+    color: var(--white-100);
+  }
+  .nav-link_roll:hover .roll-inner {
+    transform: translateY(-50%);
+  }
+  .nav-link_roll .roll-inner span:last-child {
+    color: var(--accent);
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .menu-btn { display: none; width: 38px; height: 38px; border-radius: 50%; align-items: center; justify-content: center; border: 1px solid var(--line-2); color: var(--white-100); background: rgba(255,255,255,0.04); }
+  .menu-btn svg { width: 18px; height: 18px; }
+
+  /* ========== HERO ========== */
+  .hero { padding: 130px 0 100px; position: relative; }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero h1 {
+    font-size: clamp(38px, 6.5vw, 70px);
+    font-weight: 700; letter-spacing: -0.035em; max-width: 16ch; margin-bottom: 24px;
+    color: var(--white-100);
+  }
+  .hero h1 em { 
+    font-style: normal; 
+    color: var(--accent);
+  }
+  .hero .sub {
+    font-size: clamp(17px, 2.1vw, 20.5px); color: var(--white-50);
+    max-width: 56ch; line-height: 1.55; margin-bottom: 38px; font-weight: 400;
+  }
+  .hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .hero-cta .secondary { 
+    font-size: 15px; font-weight: 600; color: var(--white-80); 
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 8px; 
+    transition: all .2s ease; 
+  }
+  .hero-cta .secondary:hover { gap: 12px; color: var(--white-100); }
+  .hero-cta .secondary svg { width: 16px; height: 16px; color: var(--accent); }
+
+  /* ========== WORD-BY-WORD SCROLL REVEAL (MANIFESTO / QUOTE SECTION) ========== */
+  .quote-section {
+    padding: 110px 0;
+    position: relative;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .quote-kicker {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .quote-kicker::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .reveal-quote {
+    font-family: var(--font-heading);
+    font-size: clamp(27px, 4.2vw, 48px);
+    font-weight: 600;
+    line-height: 1.32;
+    letter-spacing: -0.025em;
+    max-width: 940px;
+  }
+  .quote-word {
+    display: inline-block;
+    opacity: 0.22;
+    color: var(--white-100);
+    transition: opacity 0.3s ease, color 0.3s ease;
+    margin-right: 0.22em;
+  }
+  .quote-word.is-lit {
+    opacity: 1.0;
+    color: #ffffff;
+  }
+  .quote-word.is-highlight.is-lit {
+    color: var(--accent);
+  }
+
+  /* ========== SECTION HEAD ========== */
+  .kicker {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 13px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+  }
+  .kicker::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .s-head { max-width: 54ch; margin-bottom: 56px; }
+  .s-head h2 { font-size: clamp(30px, 4.4vw, 44px); font-weight: 700; margin-bottom: 16px; color: var(--white-100); }
+  .s-head p { font-size: 17.5px; color: var(--white-50); line-height: 1.6; font-weight: 400; }
+
+  /* ========== WHY US / THE GAP ========== */
+  .gap-rows { display: flex; flex-direction: column; }
+  .gap-row {
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: 32px 64px;
+    padding: 40px 0; border-top: 1px solid var(--line); align-items: start;
+    transition: background .2s ease;
+  }
+  .gap-row:last-child { border-bottom: 1px solid var(--line); }
+  .gap-row .gr-num { 
+    font-size: 14px; font-weight: 700; color: var(--accent); 
+    letter-spacing: .06em; font-family: var(--font-mono);
+  }
+  .gap-row h3 { font-size: clamp(21px, 3vw, 27px); font-weight: 600; letter-spacing: -0.025em; margin-top: 8px; max-width: 18ch; color: var(--white-100); }
+  .gap-row .gr-body p { font-size: 16.5px; color: var(--white-50); line-height: 1.6; }
+  .gap-row .gr-body .vs {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 13.5px; font-weight: 600; color: #ffffff;
+    margin-top: 16px; background: var(--accent-faint); border: 1px solid var(--accent-border);
+    padding: 7px 13px; border-radius: 8px;
+  }
+  .gap-row .gr-body .vs svg { width: 15px; height: 15px; color: var(--accent); }
+
+  /* ========== CREATORS (3 cards) ========== */
+  .creators { background: var(--bg-surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .roster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .ccard {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: 28px; transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    position: relative; overflow: hidden;
+  }
+  .ccard:hover { 
+    transform: translateY(-4px); 
+    border-color: rgba(255, 30, 66, 0.4); 
+    background: var(--bg-card-hover);
+  }
+  .ccard .ch { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .ch .av {
+    width: 48px; height: 48px; border-radius: 12px; flex: 0 0 auto;
+    display: grid; place-items: center; color: #fff; font-family: var(--font-heading); font-weight: 700; font-size: 18px; letter-spacing: -0.02em;
+  }
+  .ch .nm { font-family: var(--font-heading); font-size: 17.5px; font-weight: 600; letter-spacing: -0.02em; color: var(--white-100); }
+  .ch .pl { font-size: 13px; color: var(--white-50); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+  .ch .pl svg { width: 13px; height: 13px; color: var(--accent); }
+  .ccard .niche { font-size: 14.5px; color: var(--white-50); margin-bottom: 22px; }
+  .ccard .row { display: flex; justify-content: space-between; align-items: baseline; padding-top: 18px; border-top: 1px solid var(--line); }
+  .ccard .row .m .v { font-family: var(--font-heading); font-size: 21px; font-weight: 700; letter-spacing: -0.03em; color: var(--white-100); }
+  .ccard .row .m .v .u { font-size: 13px; color: var(--faint); font-weight: 600; }
+  .ccard .row .m .k { font-size: 12px; color: var(--white-50); margin-top: 2px; }
+  .ccard .row .m.r { text-align: right; }
+  .ccard .row .m.r .v { color: var(--accent); }
+
+
+  /* ========== SERVICES ========== */
+  .svc-list { border-top: 1px solid var(--line); }
+  .svc {
+    display: grid; grid-template-columns: 42px 1fr 1.4fr; gap: 28px;
+    padding: 32px 0; border-bottom: 1px solid var(--line); align-items: start;
+    transition: padding-left .2s ease;
+  }
+  .svc:hover { padding-left: 8px; }
+  .svc .si { color: var(--accent); }
+  .svc .si svg { width: 24px; height: 24px; }
+  .svc h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.025em; color: var(--white-100); }
+  .svc .sd p { font-size: 15.5px; color: var(--white-50); line-height: 1.6; }
+  .svc .sd .tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .svc .sd .tags span { 
+    font-family: var(--font-mono);
+    font-size: 12px; font-weight: 500; color: var(--white-80); 
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); 
+    padding: 4px 10px; border-radius: 6px; 
+  }
+
+  /* ========== HOW IT WORKS ========== */
+  .how { background: #09090d; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .how .kicker { color: var(--accent); }
+  .how h2 { color: var(--white-100); }
+  .how .s-head p { color: var(--white-50); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .step { position: relative; }
+  .step .sn { 
+    font-family: var(--font-mono);
+    font-size: 13px; font-weight: 700; color: var(--accent); 
+    letter-spacing: .08em; margin-bottom: 14px; display: block; 
+  }
+  .step .line { height: 2px; background: rgba(255, 255, 255, 0.08); margin-bottom: 20px; position: relative; }
+  .step .line::after { 
+    content:''; position: absolute; left: 0; top: 0; height: 100%; width: 24px; 
+    background: var(--accent); 
+  }
+  .step h3 { font-size: 20px; color: var(--white-100); font-weight: 600; margin-bottom: 8px; }
+  .step p { font-size: 14.5px; color: var(--white-50); line-height: 1.6; }
+
+
+  /* ========== CONTACT ========== */
+  .contact { background: var(--bg-surface); border-top: 1px solid var(--line); }
+  .c-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .c-left h2 { font-size: clamp(30px, 4.4vw, 44px); font-weight: 700; margin-bottom: 16px; color: var(--white-100); }
+  .c-left > p { font-size: 17.5px; color: var(--white-50); line-height: 1.6; margin-bottom: 32px; max-width: 40ch; }
+  .channels { display: flex; flex-direction: column; gap: 12px; }
+  .chan {
+    display: flex; align-items: center; gap: 16px;
+    padding: 15px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-card);
+    transition: all .2s ease;
+  }
+  .chan:hover { 
+    transform: translateY(-2px); 
+    border-color: rgba(255, 30, 66, 0.4); 
+    background: var(--bg-card-hover);
+  }
+  .chan .ci { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; flex: 0 0 auto; background: var(--accent-faint); color: var(--accent); border: 1px solid var(--accent-border); }
+  .chan .ci svg { width: 20px; height: 20px; }
+  .chan .ct small { display: block; font-family: var(--font-mono); font-size: 11px; color: var(--white-50); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+  .chan .ct b { font-size: 15px; font-weight: 600; color: var(--white-100); }
+  .chan .ca { margin-left: auto; color: var(--faint); transition: transform .2s ease, color .2s ease; }
+  .chan:hover .ca { transform: translateX(3px); color: var(--accent); }
+
+  .form-card { 
+    background: var(--bg-elevated); 
+    border: 1px solid var(--line-2); 
+    border-radius: var(--radius-lg); 
+    padding: 32px; 
+  }
+  .form-card h3 { font-size: 21px; font-weight: 700; margin-bottom: 6px; color: var(--white-100); }
+  .form-card .fsub { font-size: 14.5px; color: var(--white-50); margin-bottom: 24px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 7px; color: var(--white-80); }
+  .field input, .field select, .field textarea {
+    width: 100%; font-family: inherit; font-size: 15px; color: var(--white-100);
+    padding: 13px 15px; border: 1.5px solid var(--line-2); border-radius: 10px; background: var(--bg-base);
+    transition: border-color .2s ease, background .2s ease;
+  }
+  .field select option { background: var(--bg-surface); color: var(--white-100); }
+  .field input::placeholder, .field textarea::placeholder { color: var(--faint); }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--accent); background: #111116;
+  }
+  .field textarea { resize: vertical; min-height: 90px; }
+  .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-card button[type=submit] { width: 100%; justify-content: center; margin-top: 6px; }
+  .fnote { font-family: var(--font-mono); font-size: 11.5px; color: var(--white-50); text-align: center; margin-top: 14px; }
+  .fsuccess { display: none; text-align: center; padding: 20px 0; }
+  .fsuccess.show { display: block; }
+  .fsuccess .fi { width: 52px; height: 52px; border-radius: 50%; background: var(--accent-faint); color: var(--accent); border: 1px solid var(--accent-border); display: grid; place-items: center; margin: 0 auto 14px; }
+  .fsuccess .fi svg { width: 26px; height: 26px; }
+  .fsuccess h3 { margin-bottom: 6px; color: var(--white-100); }
+  .fsuccess p { font-size: 14.5px; color: var(--white-50); }
+
+  /* ========== FOOTER ========== */
+  footer { padding: 56px 0 32px; border-top: 1px solid var(--line); background: var(--bg-base); }
+  .f-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 44px; }
+  .f-brand { max-width: 36ch; }
+  .f-brand .brand { margin-bottom: 14px; }
+  .f-brand p { font-size: 14.5px; color: var(--white-50); line-height: 1.6; }
+  .f-cols { display: flex; gap: 60px; flex-wrap: wrap; }
+  .f-col h5 { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin-bottom: 16px; font-weight: 700; }
+  .f-col a { display: block; font-size: 14.5px; color: var(--white-80); margin-bottom: 11px; transition: color .2s ease; }
+  .f-col a:hover { color: var(--accent); }
+  .f-bot { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; color: var(--white-50); }
+  .f-bot b { color: var(--accent); font-weight: 700; }
+
+  /* ========== MOBILE PANEL ========== */
+  .mpanel { position: fixed; inset: 0; z-index: 2000; background: rgba(5, 5, 8, 0.85); backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  .mpanel.open { opacity: 1; pointer-events: auto; }
+  .mpanel .mi { position: absolute; top: 0; right: 0; bottom: 0; width: min(82%, 340px); background: var(--bg-surface); border-left: 1px solid var(--line); padding: 26px; transform: translateX(100%); transition: transform .3s cubic-bezier(.22,1,.36,1); display: flex; flex-direction: column; }
+  .mpanel.open .mi { transform: none; }
+  .mh { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
+  .mc { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; border: 1px solid var(--line-2); color: var(--white-100); }
+  .mc svg { width: 20px; height: 20px; }
+  .mpanel a.ml { font-family: var(--font-heading); font-size: 18px; font-weight: 600; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--white-80); }
+  .mpanel a.ml:hover { color: var(--accent); }
+  .mpanel .btn { margin-top: 22px; justify-content: center; }
+
+  /* ========== REVEAL ANIMATION ========== */
+  .rv { opacity: 0; transform: translateY(20px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+  .rv.in { opacity: 1; transform: none; }
+  .d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 880px){
+    .roster, .steps { grid-template-columns: repeat(2,1fr); }
+    .c-grid { grid-template-columns: 1fr; gap: 40px; }
+    .gap-row { grid-template-columns: 1fr; gap: 14px; }
+    .svc { grid-template-columns: 36px 1fr; }
+    .svc .sd { grid-column: 1 / -1; }
+  }
+  @media (max-width: 768px){
+    .nav-links, .nav-right .btn { display: none; }
+    .menu-btn { display: flex; }
+    .roster, .steps { grid-template-columns: 1fr; }
+    .frow { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    * { transition-duration: .01ms !important; }
+    .rv { opacity: 1; transform: none; }
+    .quote-word { opacity: 1 !important; }
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- TACTILE FILM GRAIN / NOISE OVERLAY -->
+<div class="bg-noise" aria-hidden="true"></div>
+
+<!-- FLOATING GLASSMORHPIC NAV-PILL -->
+<div class="nav-header">
+  <header class="nav-pill" id="navPill">
+    <a href="#top" class="brand">
+      <svg class="logo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#181820" stroke="rgba(255,30,66,0.5)" stroke-width="1.5"/>
+        <path d="M20 8c1.8 4.6 5.6 8.4 10.2 10.2C25.6 20 21.8 23.8 20 28.4 18.2 23.8 14.4 20 9.8 18.2 14.4 16.4 18.2 12.6 20 8z" fill="#ff1e42"/>
+        <circle cx="20" cy="18" r="2.4" fill="#ffffff"/>
+      </svg>
+      <span>Creators<b>Tak</b></span>
+    </a>
+
+    <!-- Rolling text hover menu -->
+    <nav class="nav-links">
+      <a href="#why" class="nav-link_roll"><span class="roll-inner"><span class="roll-text">Why us</span><span class="roll-text" aria-hidden="true">Why us</span></span></a>
+      <a href="#manifesto" class="nav-link_roll"><span class="roll-inner"><span class="roll-text">Manifesto</span><span class="roll-text" aria-hidden="true">Manifesto</span></span></a>
+      <a href="#creators" class="nav-link_roll"><span class="roll-inner"><span class="roll-text">Creators</span><span class="roll-text" aria-hidden="true">Creators</span></span></a>
+      <a href="#services" class="nav-link_roll"><span class="roll-inner"><span class="roll-text">Services</span><span class="roll-text" aria-hidden="true">Services</span></span></a>
+      <a href="#how" class="nav-link_roll"><span class="roll-inner"><span class="roll-text">Process</span><span class="roll-text" aria-hidden="true">Process</span></span></a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#contact" class="btn btn-accent">Start a campaign</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+</div>
+
+<!-- MOBILE PANEL -->
+<div class="mpanel" id="mpanel">
+  <div class="mi">
+    <div class="mh">
+      <span class="brand">Creators<b>Tak</b></span>
+      <button class="mc" id="mClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <a class="ml" href="#why">Why us</a>
+    <a class="ml" href="#manifesto">Manifesto</a>
+    <a class="ml" href="#creators">Creators</a>
+    <a class="ml" href="#services">Services</a>
+    <a class="ml" href="#how">Process</a>
+    <a href="#contact" class="btn btn-accent btn-lg">Start a campaign</a>
+  </div>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <h1 class="rv">Reach Rajasthan through creators it <em>already trusts.</em></h1>
+    <p class="sub rv d2">
+      We connect apps and D2C brands to vetted local comedy &amp; lifestyle creators —
+      so your campaign lands in the dialect, humour and culture that Mumbai and Delhi agencies can't fake.
+    </p>
+    <div class="hero-cta rv d3">
+      <a href="#contact" class="btn btn-accent btn-lg">Start a campaign
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#creators" class="secondary">See our creators
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WORD-BY-WORD SCROLL REVEAL (MANIFESTO / QUOTE SECTION) -->
+<section class="quote-section" id="manifesto">
+  <div class="wrap">
+    <div class="quote-container" id="manifestoQuote">
+      <span class="quote-kicker">Agency Manifesto · "A Pinch of Madness"</span>
+      <h2 class="reveal-quote" aria-label="We believe regional reach isn't just translation — it demands deep cultural instinct, dialect precision, and a pinch of madness that turns scroll-past ads into unstoppable local phenomena.">
+        <span class="quote-word">We</span>
+        <span class="quote-word">believe</span>
+        <span class="quote-word">regional</span>
+        <span class="quote-word">reach</span>
+        <span class="quote-word">isn't</span>
+        <span class="quote-word">just</span>
+        <span class="quote-word">translation</span>
+        <span class="quote-word">—</span>
+        <span class="quote-word">it</span>
+        <span class="quote-word">demands</span>
+        <span class="quote-word">deep</span>
+        <span class="quote-word">cultural</span>
+        <span class="quote-word">instinct,</span>
+        <span class="quote-word">dialect</span>
+        <span class="quote-word">mastery,</span>
+        <span class="quote-word">and</span>
+        <span class="quote-word is-highlight">a</span>
+        <span class="quote-word is-highlight">pinch</span>
+        <span class="quote-word is-highlight">of</span>
+        <span class="quote-word is-highlight">madness</span>
+        <span class="quote-word">that</span>
+        <span class="quote-word">turns</span>
+        <span class="quote-word">scroll-past</span>
+        <span class="quote-word">ads</span>
+        <span class="quote-word">into</span>
+        <span class="quote-word is-highlight">unstoppable</span>
+        <span class="quote-word is-highlight">local</span>
+        <span class="quote-word is-highlight">phenomena.</span>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US / THE GAP -->
+<section id="why">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="kicker">Why CreatorsTak</span>
+      <h2>Big agencies buy reach. They can't buy belonging.</h2>
+      <p>A national campaign translated into "Hindi" still sounds like an outsider in Jodhpur, Bikaner or Barmer. Real influence here runs on dialect and trust. That's the gap we close.</p>
+    </div>
+
+    <div class="gap-rows">
+      <div class="gap-row rv">
+        <div>
+          <span class="gr-num">01</span>
+          <h3>Reach without resonance is wasted budget</h3>
+        </div>
+        <div class="gr-body">
+          <p>Metro agencies run "pan-India Hindi" that feels foreign in western Rajasthan, and pad costs with layers of middlemen. You pay more and connect less.</p>
+          <span class="vs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg> We work with dialect-native creators, at regional pricing</span>
+        </div>
+      </div>
+      <div class="gap-row rv">
+        <div>
+          <span class="gr-num">02</span>
+          <h3>Followers aren't the same as cultural pull</h3>
+        </div>
+        <div class="gr-body">
+          <p>Plenty of influencers have followers here. Few have the trust that makes a recommendation actually move. We pick for resonance, not just numbers.</p>
+          <span class="vs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg> Vetted for engagement and real regional audience</span>
+        </div>
+      </div>
+      <div class="gap-row rv">
+        <div>
+          <span class="gr-num">03</span>
+          <h3>You need someone who actually lives here</h3>
+        </div>
+        <div class="gr-body">
+          <p>We're from west Rajasthan. We know which references land, which festivals matter, and which creators a brand should never touch. That judgement isn't on a dashboard.</p>
+          <span class="vs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg> Local ground knowledge, not a national playbook</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREATORS -->
+<section class="creators" id="creators">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="kicker">The roster</span>
+      <h2>Creators with real pull in the region.</h2>
+      <p>Each creator is vetted directly by us — for engagement and for the share of audience that actually lives in the region you want to win.</p>
+    </div>
+
+    <div class="roster">
+      <article class="ccard rv d1">
+        <div class="ch">
+          <div class="av" style="background:linear-gradient(135deg,#ff1e42,#8b001d)">RC</div>
+          <div>
+            <div class="nm">Regional comedy</div>
+            <div class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg> Instagram Reels</div>
+          </div>
+        </div>
+        <p class="niche">Marwari skits &amp; everyday humour</p>
+        <div class="row">
+          <div class="m"><div class="v">[reach]<span class="u"></span></div><div class="k">Followers</div></div>
+          <div class="m r"><div class="v">[%]</div><div class="k">Rajasthan audience</div></div>
+        </div>
+      </article>
+
+      <article class="ccard rv d2">
+        <div class="ch">
+          <div class="av" style="background:linear-gradient(135deg,#ff4d6d,#a00b28)">LV</div>
+          <div>
+            <div class="nm">Lifestyle &amp; culture</div>
+            <div class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg> Instagram</div>
+          </div>
+        </div>
+        <p class="niche">Festivals, travel &amp; local life</p>
+        <div class="row">
+          <div class="m"><div class="v">[reach]<span class="u"></span></div><div class="k">Followers</div></div>
+          <div class="m r"><div class="v">[%]</div><div class="k">Rajasthan audience</div></div>
+        </div>
+      </article>
+
+      <article class="ccard rv d3">
+        <div class="ch">
+          <div class="av" style="background:linear-gradient(135deg,#e0062b,#3a000a)">VL</div>
+          <div>
+            <div class="nm">Vlogs &amp; food</div>
+            <div class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 7.5v9a3 3 0 01-3 3H5a3 3 0 01-3-3v-9a3 3 0 013-3h14a3 3 0 013 3z"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg> YouTube</div>
+          </div>
+        </div>
+        <p class="niche">Desert vlogs &amp; regional food</p>
+        <div class="row">
+          <div class="m"><div class="v">[subs]<span class="u"></span></div><div class="k">Subscribers</div></div>
+          <div class="m r"><div class="v">[%]</div><div class="k">Rajasthan audience</div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="kicker">What we do</span>
+      <h2>One team, from your brief to the region's feed.</h2>
+    </div>
+
+    <div class="svc-list rv">
+      <div class="svc">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+        <h3>Creator campaigns</h3>
+        <div class="sd">
+          <p>Reels, shorts and integrations built around each creator's voice — native enough that the audience doesn't scroll past.</p>
+          <div class="tags"><span>#reels-shorts</span><span>#integrations</span><span>#sponsored-skits</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 00-8-8z"/></svg></div>
+        <h3>Regional targeting</h3>
+        <div class="sd">
+          <p>We match brands to creators by district, dialect and audience makeup — so your budget hits the region, not a generic "India" blur.</p>
+          <div class="tags"><span>#district-targeting</span><span>#dialect-matching</span><span>#festival-timing</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Content &amp; creative</h3>
+        <div class="sd">
+          <p>Hooks, scripts and concepts tuned for regional humour, with the creator's input baked in. Localisation that reads authentic, not translated.</p>
+          <div class="tags"><span>#hooks-concepts</span><span>#dialect-scripting</span><span>#creative-direction</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v16h16"/><path d="M8 14l3-4 3 3 4-6"/></svg></div>
+        <h3>End-to-end management</h3>
+        <div class="sd">
+          <p>Briefing, contracts, approvals, posting and reporting — one point of contact from kickoff to the final numbers.</p>
+          <div class="tags"><span>#single-contact</span><span>#contracts-escrow</span><span>#clean-reports</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="kicker">How it works</span>
+      <h2>Four steps from brief to results.</h2>
+      <p>No long pitches, no middlemen — a clear, fast path from your goal to the numbers.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv d1"><span class="sn">01_BRIEF</span><div class="line"></div><h3>Brief</h3><p>Tell us your goal, audience and budget. We turn it into a regional plan.</p></div>
+      <div class="step rv d2"><span class="sn">02_MATCH</span><div class="line"></div><h3>Creator match</h3><p>We shortlist vetted creators by audience-geo and fit, and share real analytics.</p></div>
+      <div class="step rv d3"><span class="sn">03_CAMPAIGN</span><div class="line"></div><h3>Campaign</h3><p>Concept, script, approvals and posting — handled, in the creator's voice.</p></div>
+      <div class="step rv d4"><span class="sn">04_RESULTS</span><div class="line"></div><h3>Results</h3><p>A clean report: reach, engagement and audience geography. No fluff.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap c-grid">
+    <div class="c-left rv">
+      <span class="kicker">Let's talk</span>
+      <h2>Tell us what you're launching.</h2>
+      <p>Share your goal and budget range. We'll come back with a regional plan and a creator shortlist — no pressure, no inflated promises.</p>
+      <div class="channels">
+        <a class="chan" href="mailto:hello@creatorstak.in">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="M3 6l9 6 9-6"/></svg></span>
+          <span class="ct"><small>Email</small><b>hello@creatorstak.in</b></span>
+          <span class="ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="chan" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener">
+          <span class="ci" style="background:rgba(255,30,66,0.12);color:var(--accent)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 21l1.7-5A8.5 8.5 0 1112 20.5a8.4 8.4 0 01-4.3-1.2L3 21z"/></svg></span>
+          <span class="ct"><small>WhatsApp</small><b>+91 XXXXX XXXXX</b></span>
+          <span class="ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="chan" href="https://instagram.com/creatorstak" target="_blank" rel="noopener">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="ct"><small>Instagram</small><b>@creatorstak</b></span>
+          <span class="ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="form-card rv d1">
+      <form id="leadForm" novalidate>
+        <h3>Start a conversation</h3>
+        <p class="fsub">We usually reply within a working day.</p>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" placeholder="e.g. Priya Sharma" required />
+        </div>
+        <div class="frow">
+          <div class="field">
+            <label for="f-brand">Brand / company</label>
+            <input id="f-brand" name="brand" type="text" placeholder="Your brand" required />
+          </div>
+          <div class="field">
+            <label for="f-budget">Budget range</label>
+            <select id="f-budget" name="budget" required>
+              <option value="" disabled selected>Select</option>
+              <option>Under ₹50k</option>
+              <option>₹50k – ₹2L</option>
+              <option>₹2L – ₹5L</option>
+              <option>₹5L – ₹10L</option>
+              <option>₹10L+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg">What are you launching?</label>
+          <textarea id="f-msg" name="message" placeholder="A line or two about your goal, product and the audience you want to reach." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-accent btn-lg">Send brief
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="fnote">[SECURE_TRANSMISSION · NO SPAM]</p>
+      </form>
+      <div class="fsuccess" id="fsuccess">
+        <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h3>Brief received.</h3>
+        <p>Thanks — we'll get back to you within a working day with a plan and a creator shortlist.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <a href="#top" class="brand">
+          <svg class="logo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect width="40" height="40" rx="10" fill="#181820" stroke="rgba(255,30,66,0.5)" stroke-width="1.5"/>
+            <path d="M20 8c1.8 4.6 5.6 8.4 10.2 10.2C25.6 20 21.8 23.8 20 28.4 18.2 23.8 14.4 20 9.8 18.2 14.4 16.4 18.2 12.6 20 8z" fill="#ff1e42"/>
+            <circle cx="20" cy="18" r="2.4" fill="#ffffff"/>
+          </svg>
+          <span>Creators<b>Tak</b></span>
+        </a>
+        <p>The bridge between brands and authentic Rajasthani audiences. Based in west Rajasthan, built for the Hindi belt.</p>
+      </div>
+      <div class="f-cols">
+        <div class="f-col">
+          <h5>Explore</h5>
+          <a href="#why">Why us</a>
+          <a href="#manifesto">Manifesto</a>
+          <a href="#creators">Creators</a>
+          <a href="#services">Services</a>
+          <a href="#how">Process</a>
+        </div>
+        <div class="f-col">
+          <h5>Get started</h5>
+          <a href="#contact">Start a campaign</a>
+          <a href="#contact">Join as creator</a>
+          <a href="mailto:hello@creatorstak.in">Email us</a>
+        </div>
+        <div class="f-col">
+          <h5>Reach us</h5>
+          <a href="mailto:hello@creatorstak.in">hello@creatorstak.in</a>
+          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://instagram.com/creatorstak" target="_blank" rel="noopener">@creatorstak</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© <span id="year"></span> CreatorsTak · West Rajasthan, India</span>
+      <span>Regional reach, done right · <b>हुकम</b></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Floating Nav-Pill Scroll Styling
+  var navPill = document.getElementById('navPill');
+  var onScroll = function () { 
+    if (navPill) {
+      navPill.classList.toggle('scrolled', window.scrollY > 25); 
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true }); 
+  onScroll();
+
+  // mobile menu
+  var panel = document.getElementById('mpanel');
+  var open = function () { panel.classList.add('open'); document.body.style.overflow = 'hidden'; };
+  var close = function () { panel.classList.remove('open'); document.body.style.overflow = ''; };
+  document.getElementById('menuBtn').addEventListener('click', open);
+  document.getElementById('mClose').addEventListener('click', close);
+  panel.addEventListener('click', function (e) { if (e.target === panel) close(); });
+  Array.prototype.forEach.call(panel.querySelectorAll('a'), function (a) { a.addEventListener('click', close); });
+
+  // Word-by-Word Scroll Reveal for Manifesto / Quote Section
+  var quoteSection = document.getElementById('manifestoQuote');
+  var quoteWords = document.querySelectorAll('.quote-word');
+  function updateQuoteReveal() {
+    if (!quoteSection || !quoteWords.length) return;
+    var rect = quoteSection.getBoundingClientRect();
+    var windowHeight = window.innerHeight;
+    
+    // Start revealing when top of section enters 85% of viewport height, complete around 35%
+    var start = windowHeight * 0.85;
+    var end = windowHeight * 0.35;
+    var progress = (start - rect.top) / (start - end);
+    progress = Math.max(0, Math.min(1, progress));
+    
+    var totalWords = quoteWords.length;
+    var litCount = Math.floor(progress * (totalWords + 1));
+    
+    quoteWords.forEach(function(word, idx) {
+      if (idx < litCount) {
+        word.classList.add('is-lit');
+      } else {
+        word.classList.remove('is-lit');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateQuoteReveal, { passive: true });
+  window.addEventListener('resize', updateQuoteReveal, { passive: true });
+  updateQuoteReveal();
+
+  // scroll reveal for standard sections
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    Array.prototype.forEach.call(document.querySelectorAll('.rv'), function (el) { io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(document.querySelectorAll('.rv'), function (el) { el.classList.add('in'); });
+  }
+
+  // lead form (front-end only)
+  var form = document.getElementById('leadForm');
+  var success = document.getElementById('fsuccess');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    Array.prototype.forEach.call(form.querySelectorAll('[required]'), function (i) {
+      if (!i.value || !i.value.trim()) { ok = false; i.style.borderColor = 'var(--accent)'; }
+      else { i.style.borderColor = ''; }
+    });
+    if (!ok) return;
+    form.style.display = 'none';
+    success.classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>
